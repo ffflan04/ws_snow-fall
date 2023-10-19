@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snow Fall</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+<body>
+    <div class="snow-container">
+        <h1 class="title">When you think of Christmas, Santa Claus comes to mind</h1>
+    </div>
+
+    <script>
+        const $snowContainer = document.querySelector('.snow-container')
+
+        const createSnow = function(){
+            /* 雪の要素を生成 */
+            const $snow = document.createElement('i')
+            $snow.className = "fa-solid fa-snowflake"
+            $snow.classList.add("snowflake") // classNameメソッドで、クラスを追加できる。
+
+            const minSize = 20
+            const maxSize = 10
+
+            /* 雪の大きさをランダムに決める */
+            // ２つの値の間の乱数を得る。
+            let snowSize = Math.random() * (maxSize - minSize) + minSize
+            $snow.style.fontSize = snowSize + "px"
+
+            /* 雪の降り始めの位置を決定する */
+            $snow.style.left = Math.random() * 100 + "%"
+
+            /* htmlに挿入 */
+            $snowContainer.appendChild($snow)
+
+            /* １０秒後に雪を消す */
+            // アニメーションの終わった要素を削除します。
+            setTimeout(()=>{
+                $snow.remove()
+            },10000)
+        }
+        createSnow()
+        // 雪を作成し、アニメーションが終了したら、その要素を削除する
+        // createSnow関数を、大量に呼び出します。
+        setInterval(createSnow, 100)
+    </script>
+</body>
+</html>

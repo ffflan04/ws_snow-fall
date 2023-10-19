@@ -1,0 +1,104 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=M+PLUS+1p&family=Noto+Sans+JP:wght@300&family=Poppins:ital,wght@1,800&family=Ubuntu:ital,wght@1,300&display=swap");
+/* 今回のこのsnowfall-website 美しい雪の正体は、*/
+/* まさかのdivタグをjavascriptで、アニメーションさせてる */
+/* という仕組みだった！！ */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Dancing Script", cursive;
+}
+
+.snow-container {
+  width: 100%;
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  background-image: url(../images/snowfall.jpg);
+  overflow: hidden;
+}
+.snow-container .title {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  font-size: 4rem;
+  animation: opening-text 5s ease 0s forwards normal;
+}
+.snow-container .snowflake {
+  position: absolute;
+  color: #fff;
+  animation: snowFall 10s linear;
+}
+.snow-container i {
+  font-size: 24px;
+}
+
+.snow-container::after {
+  content: "";
+  width: 100%;
+  height: 100vh;
+  display: block;
+  animation: opening 5s ease 0s forwards normal;
+}
+
+@keyframes opening {
+  0% {
+    background-color: black;
+  }
+  50% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+@keyframes opening-text {
+  0% {
+    color: black;
+  }
+  100% {
+    color: white;
+  }
+}
+@keyframes snowFall { /* 雪が落ちていくアニメーション */
+  0% {
+    opacity: 0;
+    top: 0;
+    transform: translateX(10px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateX(-10px);
+  }
+  20% {
+    transform: translateX(10px);
+  }
+  30% {
+    transform: translateX(-10px);
+  }
+  40% {
+    transform: translateX(10px);
+  }
+  50% {
+    transform: translateX(-10px);
+  }
+  60% {
+    transform: translateX(10px);
+  }
+  70% {
+    transform: translateX(-10px);
+  }
+  80% {
+    transform: translateX(10px);
+  }
+  90% {
+    opacity: 1;
+    transform: translateX(-10px);
+  }
+  100% {
+    opacity: 0;
+    top: 100vh;
+  }
+}/*# sourceMappingURL=style.css.map */
